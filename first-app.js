@@ -8,10 +8,16 @@
 
 const hobbies = ['sports', 'games'];
 
-for (let hobby in hobbies) {
-    console.log(hobby)
-}
+// for (let hobby in hobbies) {
+//     console.log(hobby)
+// }
 
-for (let hobby of hobbies) {
-    console.log(hobby)
-}
+// for (let hobby of hobbies) {
+//     console.log(hobby)
+// }
+
+hobbies.push("programming js");
+hobbies.push("scripting js");
+
+console.log(hobbies.map(hobby => hobby))
+// console.log(hobbies)
