@@ -19,5 +19,14 @@ const hobbies = ['sports', 'games'];
 hobbies.push("programming js");
 hobbies.push("scripting js");
 
-console.log(hobbies.map(hobby => hobby))
+// console.log(hobbies.map(hobby => hobby))
 // console.log(hobbies)
+
+const copiedArray = [...hobbies]
+console.log(copiedArray)
+
+const toArray = (...args) => {
+    return args;
+}
+
+console.log(toArray(1, 2, 3, 4, 5))
