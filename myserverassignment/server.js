@@ -7,12 +7,13 @@ const server = http.createServer((req, res) => {
     const method = req.method;
 
     if (url === '/') {
+        res.setHeader('Content-type', 'text/html');
         res.write('<html>');
         res.write('<h1>Root route hellooos</h1>');
         res.write('<form action="/users" method="POST">');
-        res.write("<input type='text' name='username'");
+        res.write("<input type='text' name='username' />");
+        res.write("<input type='submit' />");
         res.write('</form>');
-        res.write("<input type='submit' name='submit-button' />");
         res.write('</html>');
         return res.end();
     }
@@ -22,15 +23,17 @@ const server = http.createServer((req, res) => {
         req.on('data', chunk => {
             user.push(chunk);
         });
-
-        res.write('<html>');
-        res.write(`<ul><li>${user}</li></ul>`);
-        res.write('</html>');
-        console.log(req);
-        return res.end();
+        return req.on('end', () => {
+            const usersList = Buffer.concat(user).toString();
+            res.write('<html>');
+            res.write(`<ul><li>${usersList}</li></ul>`);
+            res.write('</html>');
+            console.log(req);
+            return res.end();
+        });
     }
     res.write('<h1>hi</h1>');
-    res.end();
+    return res.end();
 });
 
 console.log(`Server running on 127.0.0.1:${port}`);
