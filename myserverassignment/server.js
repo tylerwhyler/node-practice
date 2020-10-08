@@ -29,9 +29,9 @@ const server = http.createServer((req, res) => {
             user.push(chunk);
         });
         return req.on('end', () => {
-            const usersList = Buffer.concat(user).toString();
+            let usersList = Buffer.concat(user).toString();
             res.write('<html>');
-            res.write(`<ul><li>${usersList}</li></ul>`);
+            res.write(`<ul><li>${usersList.split('=')[1]}</li></ul>`);
             res.write('</html>');
             console.log(req);
             return res.end();
