@@ -38,4 +38,17 @@ const requestHandler = (req, res) => {
     res.end();
 };
 
-module.exports = requestHandler;
+module.exports = {
+    requestHandler,
+    printSomeText(port) {
+        console.log('Server running at http://localhost:' + port);
+    },
+};
+
+// also, you can export like this;
+// module.exports.requestHandler = requestHandler;
+// module.exports.printSomeText = printSomeText = () => (console.log("some text"))
+
+// ALSO, you can write it like this;
+// exports.requestHandler = requestHandler;
+// exports.printSomeText = printSomeText = () => (console.log("some text"))
