@@ -1,32 +1,22 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 
 app = express();
 
-// let middlewareCount = 0;
+app.use(bodyParser.urlencoded({extended: true}));
 
-// app.use((req, res, next) => {
-//     console.log('express is way easier wow');
-//     middlewareCount++;
-//     next();
-// })
-
-// app.use((req, res, next) => {
-//     console.log('express is way easier wow');
-//     middlewareCount++;
-//     next();
-// })
-
-// app.use((req, res, next) => {
-//     res.send(`<h1>total number of middlewares used: ${middlewareCount}</h1>`);
-//     middlewareCount = 0;
-// })
-
-app.use("/users", (req, res, next) => {
-    return res.send('<p>List of all registered users: </p>')
+app.use("/add-user", (req, res, next) => {
+    return res.send(`<html><body>
+                     <form action="users" method="POST">
+                     <input type="text" name="user">
+                     <button type="submit">Add user</button></input></form>
+                     </body></html>`)
 })
 
-app.use("/", (req, res, next) => {
-    return res.send('<h1>Splash page, Welcome!</h1>')
+app.use('/users', (req, res, next) => {
+    console.log(req.body);
+    // res.redirect('/');
+    return res.send(`<h1>users: ${req.body.user}</h1>`)
 })
 
 app.listen(4000);
