@@ -1,18 +1,32 @@
-const http = require('http');
-
 const express = require('express');
 
-const app = express();
+app = express();
 
-app.use((req, res, next) => {
-    console.log("In the middleware!")
-    next();
+// let middlewareCount = 0;
+
+// app.use((req, res, next) => {
+//     console.log('express is way easier wow');
+//     middlewareCount++;
+//     next();
+// })
+
+// app.use((req, res, next) => {
+//     console.log('express is way easier wow');
+//     middlewareCount++;
+//     next();
+// })
+
+// app.use((req, res, next) => {
+//     res.send(`<h1>total number of middlewares used: ${middlewareCount}</h1>`);
+//     middlewareCount = 0;
+// })
+
+app.use("/users", (req, res, next) => {
+    return res.send('<p>List of all registered users: </p>')
 })
 
-app.use((req, res, next) => {
-    console.log("In 2 the middleware!")
+app.use("/", (req, res, next) => {
+    return res.send('<h1>Splash page, Welcome!</h1>')
 })
 
-const server = http.createServer(app);
-
-server.listen(4000);
+app.listen(4000);
