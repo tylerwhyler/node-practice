@@ -15,6 +15,9 @@ app.use("/add-user", (req, res, next) => {
 //app.use for any HTTP request type!
 //app.post For POST requests only!
 //app.get For GET requests only!
+//app.delete
+//app.patch
+//app.put for the other http request types
 app.get('/users', (req, res, next) => {
     console.log(req.body);
     // res.redirect('/');
