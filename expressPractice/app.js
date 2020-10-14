@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 app = express();
 
 const adminRoutes = require('./routes/admin')
-const splashRoutes = require('./routes/shop')
+const splashRoutes = require('./routes/splash')
 
 app.use(bodyParser.urlencoded({extended: true}));
 
