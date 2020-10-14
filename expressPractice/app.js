@@ -12,8 +12,10 @@ app.use("/add-user", (req, res, next) => {
                      <button type="submit">Add user</button></input></form>
                      </body></html>`)
 })
-
-app.use('/users', (req, res, next) => {
+//app.use for any HTTP request type!
+//app.post For POST requests only!
+//app.get For GET requests only!
+app.get('/users', (req, res, next) => {
     console.log(req.body);
     // res.redirect('/');
     return res.send(`<h1>users: ${req.body.user}</h1>`)
