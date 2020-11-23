@@ -1,4 +1,5 @@
 const http = require('http');
+// SERVER WITHOUT EXPRESS
 
 const port = 4000;
 
@@ -22,7 +23,7 @@ const server = http.createServer((req, res) => {
         res.write('</html>');
         return res.end();
     }
-
+// GETTING FORM DATA WITHOUT BODYPARSER
     if (url === '/users' && method === 'POST') {
         const user = [];
         req.on('data', chunk => {

@@ -5,12 +5,12 @@ const express = require('express')
 const router = express.Router();
 
 router.get("/add-user", (req, res, next) => {
-    return res.sendFile(path.join(__dirname, "../views", "add-user.html"));
+    return res.sendFile(path.join(__dirname, "../", "views", "add-user.html"));
 })
 
 router.post('/users', (req, res, next) => {
     console.log(req.body);
-    res.redirect('/');
+    return res.redirect('/splash');
 })
 
 module.exports = router;

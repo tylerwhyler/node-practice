@@ -4,8 +4,8 @@ const express = require('express');
 
 const router = express.Router();
 
-router.use('/', (req, res, next) => {
-    return res.sendFile(path.join(__dirname, "../views", "splash.html"));
+router.use('/splash', (req, res, next) => {
+    return res.sendFile(path.join(__dirname, "../", "views", "splash.html"));
 })
 
 module.exports = router;
