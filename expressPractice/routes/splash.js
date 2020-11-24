@@ -2,10 +2,12 @@ const path = require('path');
 
 const express = require('express');
 
+const rootDir = require('../helpers/path');
+
 const router = express.Router();
 
-router.use('/splash', (req, res, next) => {
-    return res.sendFile(path.join(__dirname, "../", "views", "splash.html"));
+router.get('/', (req, res, next) => {
+    return res.sendFile(path.join(rootDir, "views", "splash.html"));
 })
 
 module.exports = router;
