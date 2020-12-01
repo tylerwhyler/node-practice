@@ -20,7 +20,13 @@
     </header>
     <main>
         <h1>My Users</h1>
-        <p>{{ userList }}</p>
+        {{#if hasUsers }}
+            {{#each userList }}
+                <p>{{ this.user }}</p>
+            {{/each}}
+        {{ else }}
+            <p>No users registered</p>
+        {{/if}}
     </main>
 </body>
 

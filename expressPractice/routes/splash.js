@@ -8,7 +8,8 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
     console.log(app.users)
-    return res.render('splash', { userList: app.users, title: "Splash page" });
+    return res.render('splash', { userList: app.users, title: "Splash page", 
+    hasUsers: app.users.length > 0 ? true : false });
 })
 
 module.exports = router;
