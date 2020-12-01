@@ -40,7 +40,6 @@ main {
 
 .main-header__item a {
     text-decoration: none;
-    color: black;
 }
 
 .main-header__item a:hover,

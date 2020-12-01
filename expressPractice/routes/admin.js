@@ -7,7 +7,11 @@ const router = express.Router();
 const app = require('../app')
 
 router.get("/add-user", (req, res, next) => {
-    return res.render('add-user', { title: 'Add-user' })
+    return res.render('add-user', { 
+        title: 'Add-user',
+        usersCSS: true,
+        activeAddUser: true,
+    })
 })
 
 router.post('/user', (req, res, next) => {

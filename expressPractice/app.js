@@ -5,15 +5,21 @@ const expressHbs = require('express-handlebars');
 
 const app = express();
 
-const adminRoutes = require('./routes/admin')
-const splashRoutes = require('./routes/splash')
+const adminRoutes = require('./routes/admin');
+const splashRoutes = require('./routes/splash');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.engine('handlebars', expressHbs()); //registers a new, not built-in templating engine to express
+app.engine('handlebars', expressHbs({ 
+    layoutsDir: path.join(__dirname, 'views/layouts'), 
+    defaultLayout: 'main-layout',
+    extname: 'handlebars' //extname is 'handlebars' by default
+}));
+// ^registers a new, not built-in templating engine to express
 
-app.set('view engine', 'handlebars'); //tells express what templating engine to use; example: app.set('view engine', 'jse')
+app.set('view engine', 'handlebars'); 
+// ^tells express what templating engine to use; example: app.set('view engine', 'jse')
 app.set('views', path.join(__dirname, 'views')); //views is views by default
 
 const port = 4000;
@@ -24,7 +30,7 @@ app.use(splashRoutes);
 
 app.use((req, res, next) => {
     return res.status(404).render('404', { title: 'Error Page' })
-})
+});
 
 //app.use for any HTTP request type!
 //app.post For POST requests only!
