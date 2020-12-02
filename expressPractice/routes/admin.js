@@ -1,23 +1,13 @@
-const path = require('path');
+//const path = require('path');
 const express = require('express');
-// const rootDir = require('../helpers/path');
+
+//const rootDir = require('../helpers/path');
 
 const router = express.Router();
 
-const app = require('../app')
+const usersController = require('../controllers/users')
 
-router.get("/add-user", (req, res, next) => {
-    return res.render('add-user', { 
-        title: 'Add user',
-        usersCSS: true,
-        activeAddUser: true,
-        path: '/admin/add-user'
-    })
-})
-
-router.post('/user', (req, res, next) => {
-    app.users.push(req.body)
-    return res.redirect('/');
-})
+router.get("/add-user", usersController.getAddUser);
+router.post('/user', usersController.postAddUser)
 
 module.exports = router;

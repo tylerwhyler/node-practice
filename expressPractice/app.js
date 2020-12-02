@@ -6,6 +6,7 @@ const app = express();
 
 const adminRoutes = require('./routes/admin');
 const splashRoutes = require('./routes/splash');
+const errorController = require('./controllers/error')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -22,14 +23,11 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views')); //views is views by default
 
 const port = 4000;
-const users = [];
 
 app.use("/admin", adminRoutes);
 app.use(splashRoutes);
 
-app.use((req, res, next) => {
-    return res.status(404).render('404', { title: 'Error Page' })
-});
+app.use(errorController.errorPage);
 
 //app.use for any HTTP request type!
 //app.post For POST requests only!
@@ -41,5 +39,3 @@ app.use((req, res, next) => {
 app.listen(port, "127.0.0.1", () => {
     console.log(`Server running on port: ${port}`)
 });
-
-exports.users = users
