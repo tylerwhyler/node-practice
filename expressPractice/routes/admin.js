@@ -8,9 +8,10 @@ const app = require('../app')
 
 router.get("/add-user", (req, res, next) => {
     return res.render('add-user', { 
-        title: 'Add-user',
+        title: 'Add user',
         usersCSS: true,
         activeAddUser: true,
+        path: '/admin/add-user'
     })
 })
 
