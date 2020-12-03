@@ -16,15 +16,15 @@ exports.postAddUser = (req, res, next) => {
 }
 
 exports.getUsers = (req, res, next) => {
-    const users = User.fetchAll();
-    console.log(users)
-    return res.render('splash', { 
-        userList: users, 
-        title: "Splash page",
-        path: '/',
-        hasUsers: users.length > 0 ? true : false,
-        activeSplash: true,
-        usersCSS: true,
-        //layout: false -> special keyword to not use the layout
+    return User.fetchAll(users => {
+        return res.render('splash', { 
+            userList: users, 
+            title: "Splash page",
+            path: '/',
+            hasUsers: users.length > 0 ? true : false,
+            activeSplash: true,
+            usersCSS: true,
+            //layout: false -> special keyword to not use the layout
+        });
     });
 }
