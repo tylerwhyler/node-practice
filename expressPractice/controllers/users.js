@@ -25,6 +25,6 @@ exports.getUsers = (req, res, next) => {
             activeSplash: true,
             usersCSS: true,
             //layout: false -> special keyword to not use the layout
-        });
+        });dkdkfslalsidiwaklzajxcxzkjcxj
     });
 }
