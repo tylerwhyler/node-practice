@@ -50,3 +50,22 @@ main {
 h1.error {
     margin-left: 20px;
 }
+
+.userItem {
+    width: 250px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.userItem > .userData {
+    width: 200px;
+}
+
+.userItem > .delEditBtns {
+    margin: 20px;
+    margin-top: 50px;
+}
+
+.delEditBtns > button {
+    margin-bottom: 10px;
+}

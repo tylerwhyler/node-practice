@@ -10,7 +10,7 @@ exports.getAddUser = (req, res, next) => {
 }
 
 exports.postAddUser = (req, res, next) => {
-    const user = new User(req.body.user);
+    const user = new User(req.body.email, req.body.user, req.body.name, req.body.age);
     user.save();
     return res.redirect('/');
 }
@@ -27,4 +27,8 @@ exports.getUsers = (req, res, next) => {
             //layout: false -> special keyword to not use the layout
         });
     });
+}
+
+exports.deleteUser = (req, res, next) => {
+    //return 
 }

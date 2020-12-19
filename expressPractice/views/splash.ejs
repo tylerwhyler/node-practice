@@ -8,7 +8,20 @@
         <% if (userList.length > 0) { %>
             <h1>Registered Users</h1>
             <% for (let user of userList) { %>
-                <p>- <%= user.username %></p>
+                <div class="userItem">
+                    <div class="userData">
+                        <p> <%= user.email %></p>
+                        <p> <%= user.username %></p>
+                        <p> <%= user.name %></p>
+                        <p> <%= user.age %></p>
+                        <br>
+                    </div>
+                    <div class="delEditBtns">
+                        <button class="btn" action="PUT">Edit</button>
+                        <button class="btn">Delete</button>
+                    </div>
+                </div>
+                
             <% } %>
         <% } else { %>
             <h1>No users registered</h1>

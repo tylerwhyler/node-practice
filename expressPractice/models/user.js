@@ -15,8 +15,11 @@ const getUsersFromFile = (cb) => {
 }
 
 module.exports = class User {
-    constructor(user) {
+    constructor(email, user, name, age) {
         this.username = user;
+        this.name = name;
+        this.age = age;
+        this.email = email;
     }
 
     save() {
@@ -31,4 +34,6 @@ module.exports = class User {
     static fetchAll(cb) {
         getUsersFromFile(cb);
     }
+
+    static deleteUser()
 }
